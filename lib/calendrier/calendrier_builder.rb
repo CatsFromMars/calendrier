@@ -36,7 +36,7 @@ module Calendrier
                   ths = "".html_safe
                   ths << @context.content_tag(:th, time_slot_title) if display == :week
                   header.each do |cell_date|
-                    ths << @context.content_tag(:th, I18n.l(cell_date, :format => cell_date_format))
+                    ths << @context.content_tag(:th, cell_date.strftime("%A"))
                   end
                   ths
                 end
@@ -49,7 +49,7 @@ module Calendrier
                 content.each_with_index do |row, index|
                   trs << @context.content_tag(:tr, nil) do
                     tds = "".html_safe
-                    tds << @context.content_tag(:td, "#{index}h") if display == :week
+                    tds << @context.content_tag(:td, "") if display == :week
                     row.collect do |cell|
                       cell_content = "".html_safe
                       cell_time = cell[:time]
