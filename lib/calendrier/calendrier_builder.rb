@@ -49,15 +49,7 @@ module Calendrier
                 content.each_with_index do |row, index|
                   trs << @context.content_tag(:tr, nil) do
                     tds = "".html_safe
-                    time=index;
-                    display="AM"
-                    if time>=12
-                      display = "PM"
-                    end
-                    if time>12 
-                      time = time - 12
-                    end
-                    tds << @context.content_tag(:td, "#{index}:00") if(display == :week)&&(index>7)
+                    tds << @context.content_tag(:td, "#{index}h") if(display == :week)&&(index>7)
                     row.collect do |cell|
                       cell_content = "".html_safe
                       cell_time = cell[:time]
