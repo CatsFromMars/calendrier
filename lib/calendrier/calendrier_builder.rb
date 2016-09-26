@@ -42,14 +42,13 @@ module Calendrier
                 end
               end
             end
-
             unless content.nil?
               tbody = @context.content_tag(:tbody, nil) do
                 trs = "".html_safe
                 content.each_with_index do |row, index|
                   trs << @context.content_tag(:tr, nil) do
                     tds = "".html_safe
-                    tds << @context.content_tag(:td, "#{index}:00") if(display == :week)
+                    tds << @context.content_tag(:td, "#{index}:00 PM") if(display == :week)&&(index>7)
                     row.collect do |cell|
                       cell_content = "".html_safe
                       cell_time = cell[:time]
