@@ -56,7 +56,7 @@ module Calendrier
                   end
                   trs << @context.content_tag(:tr, nil) do
                     tds = "".html_safe
-                    tds << @context.content_tag(:td, "#{time}:00 PM") if(display == :week)&&(index>7)
+                    tds << @context.content_tag(:td, "#{time}:00 #{suffix}") if(display == :week)&&(index>7)
                     row.collect do |cell|
                       cell_content = "".html_safe
                       cell_time = cell[:time]
