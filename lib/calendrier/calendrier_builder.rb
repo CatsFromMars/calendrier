@@ -48,16 +48,8 @@ module Calendrier
                 trs = "".html_safe
                 content.each_with_index do |row, index|
                   trs << @context.content_tag(:tr, nil) do
-                    time=index;
-                    display="AM"
-                    if time>=12
-                      display = "PM"
-                    end
-                    if time>12 
-                      time = time - 12
-                    end
-                    tds = "8:00PM".html_safe
-                    #tds << @context.content_tag(:td, "8:00PM") if(display == :week)
+                    tds = "".html_safe
+                    tds << @context.content_tag(:td, "#{index}h") if(display == :week)
                     row.collect do |cell|
                       cell_content = "".html_safe
                       cell_time = cell[:time]
