@@ -22,11 +22,11 @@ module Calendrier
     class SimpleBuilder < Builder
       def render(header, content)
         display = @options[:display]
-        title = @options[:title] || ''
+        title = ""
         cell_date_format = @options[:cell_date_format] || (display == :month ? '%A' : :default)
         time_slot_title = @options[:time_slot_title] || ''
 
-        @context.content_tag(:div, nil, :class => "") do
+        @context.content_tag(:div, nil, :class => "calendar #{display.to_s}") do
           cal = @context.content_tag(:span, title)
           cal << @context.content_tag(:table, nil) do
 
