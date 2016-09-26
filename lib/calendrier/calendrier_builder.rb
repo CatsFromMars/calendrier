@@ -48,11 +48,11 @@ module Calendrier
                 content.each_with_index do |row, index|
                   time = index
                   suffix = "AM"
-                  if(time>12)
-                    time = time - 12
-                  end
                   if(time>11)
                     suffix="PM"
+                  end
+                  if(time>12)
+                    time = time - 12
                   end
                   trs << @context.content_tag(:tr, nil) do
                     tds = "".html_safe
