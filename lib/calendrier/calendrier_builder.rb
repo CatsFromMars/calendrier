@@ -48,7 +48,7 @@ module Calendrier
                 trs = "".html_safe
                 content.each_with_index do |row, index|
                   trs << @context.content_tag(:tr, nil) do
-                    time=index;
+                    time=0;
                     display="AM"
                     if time>=12
                       display = "PM"
