@@ -47,7 +47,9 @@ module Calendrier
                 trs = "".html_safe
                 content.each_with_index do |row, index|
                   time = index
-                  if(time>12) time = time - 12 end
+                  if(time>12)
+                    time = time - 12
+                  end
                   trs << @context.content_tag(:tr, nil) do
                     tds = "".html_safe
                     tds << @context.content_tag(:td, "#{time}:00 PM") if(display == :week)&&(index>7)
